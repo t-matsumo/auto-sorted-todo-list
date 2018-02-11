@@ -5,3 +5,6 @@
 - 期日と作業時間から行うべき順番にソート
 - Windows や mac で動作
 - 情報は動作端末に保持(将来的にはサーバにデータを保持して共有？？)
+
+# このリポジトリのテンプレート
+[simple-angular-electron](https://github.com/t-matsumo/simple-angular-electron)
