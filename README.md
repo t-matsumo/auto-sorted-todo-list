@@ -8,3 +8,9 @@
 
 # このリポジトリのテンプレート
 [simple-angular-electron](https://github.com/t-matsumo/simple-angular-electron)
+
+# TODO
+- [ ] リスト画面作成
+- [ ] TODO入力画面作成
+- [ ] 保存機能実装
+- [ ] ソート機能実装
