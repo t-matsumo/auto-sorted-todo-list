@@ -1,6 +1,6 @@
 export class Todo {
     id: number;
     todo: string;
-    deadLine: Date;
+    deadLine: string;
     workTime: number;
 }

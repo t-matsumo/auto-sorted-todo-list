@@ -7,7 +7,7 @@ import { Todo } from '../../models/todo';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-  todo: Todo = { id: 1, todo: 'やること1', deadLine: new Date(), workTime: 12 };
+  todo: Todo = { id: 1, todo: 'やること1', deadLine: "2018-02-22", workTime: 12 };
 
   constructor() { }
 
