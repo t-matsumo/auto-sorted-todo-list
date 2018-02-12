@@ -1,0 +1,17 @@
+<form #todoForm="ngForm">
+  <div>
+    <label>やること：<input [(ngModel)]="todo.todo" placeholder="やること" name="todo"/></label>
+  </div>
+
+  <div>
+    <label>期限：<input [(ngModel)]="todo.deadLine" type="date" name="deadLine"/></label>
+    {{todo.deadLine}}
+  </div>
+
+  <div>
+    <label>作業時間：<input [(ngModel)]="todo.workTime" type="number" name="workTime"/></label>
+    {{todo.workTime}}
+  </div>
+
+  <button (click)="newTodo()">追加</button>
+</form>
