@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../models/todo';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -9,12 +10,12 @@ import { Todo } from '../../models/todo';
 export class TodoFormComponent implements OnInit {
   todo: Todo = new Todo(1, 'やること1', "2018-02-22", 12);
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
-  newTodo() {
-    // TODO:実装
+  newTodo(todo: Todo): void {
+    this.todoService.saveTodo(todo);
   }
 }

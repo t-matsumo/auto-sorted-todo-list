@@ -5,15 +5,11 @@
   "scripts": {
     "start": "npm run build:prod && npm run start:electron",
     "start:electron": "./node_modules/.bin/electron ./dist/electron/main.js",
-
     "build:dev": "npm run build:dev:angular && npm run build:electron",
     "build:dev:angular": "./node_modules/.bin/ng build --base-href=\"\" --dev",
-
     "build:prod": "npm run build:prod:angular && npm run build:electron",
     "build:prod:angular": "./node_modules/.bin/ng build --base-href=\"\" --prod",
-
     "build:electron": "./node_modules/.bin/tsc -removeComments -p electron",
-
     "package": "npm run build:prod && cp electron/package.json dist && npm run package:electron",
     "package:electron": "./node_modules/.bin/electron-packager dist --overwrite"
   },
@@ -38,6 +34,7 @@
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
+    "@types/nedb": "^1.8.5",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "electron": "^1.8.2",
