@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { TodoComponent } from './components/todo/todo.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodosComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule
