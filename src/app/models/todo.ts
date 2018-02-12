@@ -1,6 +1,8 @@
 export class Todo {
-    id: number;
-    todo: string;
-    deadLine: string;
-    workTime: number;
+    
+    constructor(
+        public id: number,
+        public todo: string,
+        public deadLine: string,
+        public workTime: number) { }
 }
