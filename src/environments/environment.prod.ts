@@ -1,4 +1,4 @@
-export const environment = {
+export const CONF_PROD = {
   production: true,
-  rum_with: "electron"
+  environment: 'PROD'
 };
