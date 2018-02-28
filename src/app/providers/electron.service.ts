@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+import { Observable } from 'rxjs/Observable';
+import { Todo } from '../classes/todo';
 
 // If you import a module but never use any of the imported values other than as TypeScript types,
 // the resulting javascript file will look as if you never imported the module at all.
@@ -23,4 +26,10 @@ export class ElectronService {
     return window && window.process && window.process.type;
   }
 
+  getTodos(): Observable<Todo[]> {
+    this.ipcRenderer.send('todos');
+    return fromEvent<Todo[]>(this.ipcRenderer, 'todos', (event, todos) => {
+      return todos;
+    });
+  }
 }

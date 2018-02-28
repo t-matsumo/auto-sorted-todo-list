@@ -4,4 +4,7 @@ export class Todo {
     content: string;
     deadline: string;
     workTimeMinutes: Number;
+    _id: string;
+    createdAt: object;
+    updatedAt: object;
 }

@@ -2,27 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Todo } from '../classes/todo';
+import { ElectronService } from './electron.service';
 
 @Injectable()
 export class TodoService {
-  todos: Todo[];
 
-  constructor() { }
+  constructor(private electronService: ElectronService) { }
 
   getTodos(): Observable<Todo[]> {
-    return of([{
-      id: 1,
-      title: 'あれ',
-      content: 'これ',
-      deadline: '2018-02-26',
-      workTimeMinutes: 15,
-    },
-    {
-      id: 2,
-      title: 'それ',
-      content: 'どれ',
-      deadline: '2018-02-26',
-      workTimeMinutes: 30,
-    }]);
+    return this.electronService.getTodos();
   }
 }
