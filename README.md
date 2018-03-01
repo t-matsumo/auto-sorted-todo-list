@@ -6,11 +6,9 @@
 - Windows や mac で動作
 - 情報は動作端末に保持(将来的にはサーバにデータを保持して共有？？)
 
-# このリポジトリのテンプレート
-[simple-angular-electron](https://github.com/t-matsumo/simple-angular-electron)
-
 # TODO(最低限)
 - [x] リスト画面作成
-- [ ] TODO入力画面作成
-- [ ] 保存機能実装
-- [ ] ソート機能実装
+- [x] TODO入力画面作成
+- [x] 保存機能実装
+- [x] ソート機能実装
+- [ ] 見た目を良くする(めんどくさいからscssでだれかやってくれないかな...)
