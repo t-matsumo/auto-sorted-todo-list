@@ -16,4 +16,8 @@ export class TodoService {
   save(todo: Todo) {
     this.electronService.save(todo);
   }
+
+  remove(todo: Todo): Observable<Todo[]> {
+    return this.electronService.remove(todo);
+  }
 }

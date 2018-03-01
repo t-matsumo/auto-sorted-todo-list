@@ -24,6 +24,15 @@ export class TodoListComponent implements OnInit {
       });
   }
 
+  removeTask(todo: Todo) {
+    this.todoService.remove(todo)
+      .subscribe(todos => {
+        this.todos = todos.sort(this.compareTodo);
+        this.changeDetectorRef.detectChanges();
+      });
+  }
+
+  // TODO:比較関数は動的に変更したい
   compareTodo(x: Todo, y: Todo): number {
     const result: number = x.deadline.localeCompare(y.deadline);
     if (result === 0) {
