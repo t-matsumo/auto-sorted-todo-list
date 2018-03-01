@@ -28,9 +28,7 @@ export class ElectronService {
 
   getTodos(): Observable<Todo[]> {
     this.ipcRenderer.send('todos');
-    return fromEvent<Todo[]>(this.ipcRenderer, 'todos', (event, todos) => {
-      return todos;
-    });
+    return this.createTodoObservable();
   }
 
   save(todo: Todo) {
@@ -39,7 +37,11 @@ export class ElectronService {
 
   remove(todo: Todo): Observable<Todo[]> {
     this.ipcRenderer.send('removeTodo', todo);
-    return fromEvent<Todo[]>(this.ipcRenderer, 'removedTodos', (event, todos) => {
+    return this.createTodoObservable();
+  }
+
+  private createTodoObservable(): Observable<Todo[]> {
+    return fromEvent<Todo[]>(this.ipcRenderer, 'todos', (event, todos) => {
       return todos;
     });
   }

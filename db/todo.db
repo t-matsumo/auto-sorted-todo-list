@@ -1,8 +1,4 @@
-{"title":"それ","content":"どれ","deadline":"2018-02-26","workTimeMinutes":30,"_id":"1XRJIMl2nSbIQhYl","createdAt":{"$$date":1519832304626},"updatedAt":{"$$date":1519832304626}}
-{"title":"それ","content":"どれ","deadline":"2018-02-26","workTimeMinutes":30,"_id":"5gxsu3UuwBZrYNXc","createdAt":{"$$date":1519832780521},"updatedAt":{"$$date":1519832780521}}
-{"title":"それ","content":"どれ","deadline":"2018-02-26","workTimeMinutes":30,"_id":"7oovnfyNw961Hxik","createdAt":{"$$date":1519832574800},"updatedAt":{"$$date":1519832574800}}
-{"content":"aaaa","deadline":"2018-03-05","title":"aaaa","workTimeMinutes":1,"_id":"AeMZ1DKlOhE4GuV4","createdAt":{"$$date":1519910721579},"updatedAt":{"$$date":1519910721579}}
-{"content":"qqq","deadline":"2018-03-01","title":"qqq","workTimeMinutes":1,"_id":"dvva73OZwiULCJMq","createdAt":{"$$date":1519912600623},"updatedAt":{"$$date":1519912600623}}
-{"content":"www","deadline":"2018-03-02","title":"www","workTimeMinutes":1,"_id":"lndPixP68tIapeQs","createdAt":{"$$date":1519912609710},"updatedAt":{"$$date":1519912609710}}
-{"content":"rrrr","deadline":"2018-03-03","title":"rrr","workTimeMinutes":1,"_id":"V5iguI7ElcgRsH0Y","createdAt":{"$$date":1519912615927},"updatedAt":{"$$date":1519912615927}}
-{"content":"111","deadline":"2018-03-01","title":"1111","workTimeMinutes":6,"_id":"krQsevLq13MZgNHx","createdAt":{"$$date":1519912632374},"updatedAt":{"$$date":1519912632374}}
+{"content":"1111","deadline":"2018-03-15","title":"111","workTimeMinutes":11,"_id":"6NyA0pyMKToiPVlY","createdAt":{"$$date":1519917744292},"updatedAt":{"$$date":1519917744292}}
+{"content":"22","deadline":"2018-03-29","title":"22","workTimeMinutes":22,"_id":"mqyp6r4CqTTXoRT4","createdAt":{"$$date":1519918617674},"updatedAt":{"$$date":1519918617674}}
+{"$$deleted":true,"_id":"6NyA0pyMKToiPVlY"}
+{"$$deleted":true,"_id":"mqyp6r4CqTTXoRT4"}

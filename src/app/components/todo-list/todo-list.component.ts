@@ -33,7 +33,7 @@ export class TodoListComponent implements OnInit {
   }
 
   // TODO:比較関数は動的に変更したい
-  compareTodo(x: Todo, y: Todo): number {
+  private compareTodo(x: Todo, y: Todo): number {
     const result: number = x.deadline.localeCompare(y.deadline);
     if (result === 0) {
       return x.workTimeMinutes - y.workTimeMinutes;

@@ -31,14 +31,12 @@ function createWindow() {
   db = new Datastore({filename: 'db/todo.db', timestampData: true, autoload: true});
   // テストデータ準備
   // db.insert([{
-  //   id: 1,
   //   title: 'あれ',
   //   content: 'これ',
   //   deadline: '2018-02-26',
   //   workTimeMinutes: 15,
   // },
   // {
-  //   id: 2,
   //   title: 'それ',
   //   content: 'どれ',
   //   deadline: '2018-02-26',
@@ -99,10 +97,16 @@ try {
 }
 
 // TODO:将来的に別ファイルに分けるかも...
-ipcMain.on('todos', (event) => {
-  db.find({}, (err, todos) => event.sender.send('todos', todos));
-});
+ipcMain.on('todos', sendAllTodos);
 
 ipcMain.on('saveTodo', (event, todo) => {
   db.insert(todo);
 });
+
+ipcMain.on('removeTodo', (event, todo) => {
+  db.remove({_id: todo._id}, {}, (err1, numRemoved) => sendAllTodos(event));
+});
+
+function sendAllTodos(event) {
+  db.find({}, (err, todos) => event.sender.send('todos', todos));
+}
