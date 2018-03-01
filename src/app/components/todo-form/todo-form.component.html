@@ -1,6 +1,7 @@
 <form>
-  <label>タイトル：<input [(ngModel)]="todo.title" placeholder="やること" type="text"></label>
-  <label>内容：<input [(ngModel)]="todo.content" placeholder="やることの詳細" type="text"></label>
-  <label>期限：<input [(ngModel)]="todo.deadline" placeholder="2018-02-22" type="date"></label>
-  <label>作業時間：<input [(ngModel)]="todo.workTimeMinutes" placeholder="name" type="number"></label>
+  <label>タイトル：<input [(ngModel)]="todo.title" name="title" placeholder="やること" type="text"></label>
+  <label>内容：<input [(ngModel)]="todo.content" name="content" placeholder="やることの詳細" type="text"></label>
+  <label>期限：<input [(ngModel)]="todo.deadline" name="deadline" placeholder="2018-02-22" type="date"></label>
+  <label>作業時間：<input [(ngModel)]="todo.workTimeMinutes" name="workTimeMinutes" placeholder="time" type="number"></label>
+  <button (click)="addToList()">Todoリストに追加</button>
 </form>

@@ -12,4 +12,8 @@ export class TodoService {
   getTodos(): Observable<Todo[]> {
     return this.electronService.getTodos();
   }
+
+  save(todo: Todo) {
+    this.electronService.save(todo);
+  }
 }

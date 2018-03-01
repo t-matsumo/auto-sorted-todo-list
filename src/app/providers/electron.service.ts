@@ -32,4 +32,8 @@ export class ElectronService {
       return todos;
     });
   }
+
+  save(todo: Todo) {
+    this.ipcRenderer.send('saveTodo', todo);
+  }
 }

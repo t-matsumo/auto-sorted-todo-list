@@ -100,8 +100,9 @@ try {
 
 // TODO:将来的に別ファイルに分けるかも...
 ipcMain.on('todos', (event) => {
-  db.find({}, (err, docs) => {
-    const todos = docs;
-    event.sender.send('todos', todos);
-  });
+  db.find({}, (err, todos) => event.sender.send('todos', todos));
+});
+
+ipcMain.on('saveTodo', (event, todo) => {
+  db.insert(todo);
 });

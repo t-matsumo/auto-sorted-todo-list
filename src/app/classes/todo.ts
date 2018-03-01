@@ -1,9 +1,8 @@
 export class Todo {
-    id: Number;
     title: string;
     content: string;
     deadline: string;
-    workTimeMinutes: Number;
+    workTimeMinutes: number;
     _id: string;
     createdAt: object;
     updatedAt: object;
