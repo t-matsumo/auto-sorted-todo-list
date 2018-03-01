@@ -19,8 +19,17 @@ export class TodoListComponent implements OnInit {
   getTodos(): void {
     this.todoService.getTodos()
       .subscribe(todos => {
-        this.todos = todos;
+        this.todos = todos.sort(this.compareTodo);
         this.changeDetectorRef.detectChanges();
       });
+  }
+
+  compareTodo(x: Todo, y: Todo): number {
+    const result: number = x.deadline.localeCompare(y.deadline);
+    if (result === 0) {
+      return x.workTimeMinutes - y.workTimeMinutes;
+    }
+
+    return result;
   }
 }
