@@ -34,6 +34,15 @@ export class TodoListComponent implements OnInit {
 
   // TODO:比較関数は動的に変更したい
   private compareTodo(x: Todo, y: Todo): number {
+    // TODO:入力時にバリデーションをかけて以下のundefinedとの比較を削除する
+    if (y.deadline === undefined || x.deadline === undefined) {
+      return -1;
+    }
+
+    if (y.workTimeMinutes === undefined || x.workTimeMinutes === undefined) {
+      return -1;
+    }
+
     const result: number = x.deadline.localeCompare(y.deadline);
     if (result === 0) {
       return x.workTimeMinutes - y.workTimeMinutes;
