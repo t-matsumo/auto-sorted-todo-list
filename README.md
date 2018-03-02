@@ -1,6 +1,10 @@
 # AutoSortedTodoList
 行うべき順番にソートしてくれるTODOリスト(同じ機能を持つ既存のものはたくさんあるけど作るwww)
 
+# 実行方法
+package.jsonまたは以下のリポジトリを参照  
+https://github.com/maximegris/angular-electron
+
 # やりたいこと
 - 期日と作業時間から行うべき順番にソート
 - Windows や mac で動作
