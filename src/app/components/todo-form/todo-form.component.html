@@ -1,23 +1,23 @@
-<form (ngSubmit)="addToList()" #todoForm="ngForm">
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
   <div>
-    <label>タイトル(※必須)：<input [(ngModel)]="todo.title" name="title" placeholder="やること" type="text" required></label>
+    <label>タイトル(※必須)：<input placeholder="やること" type="text" formControlName="title"></label>
   </div>
 
   <div>
-    <label>内容(※必須)：<input [(ngModel)]="todo.content" name="content" placeholder="やることの詳細" type="text" required></label>
+    <label>内容(※必須)：<input placeholder="やることの詳細" type="text" formControlName="content"></label>
   </div>
 
   <div>
-    <label>期日(※必須)：<input [(ngModel)]="todo.deadlineDate" name="deadlineDate" type="date" required></label>
+    <label>期日(※必須)：<input type="date" formControlName="deadlineDate"></label>
   </div>
 
   <div>
-    <label>終了時刻(※必須)：<input [(ngModel)]="todo.deadlineTime" name="deadlineTime" type="time" required></label>
+    <label>終了時刻(※必須)：<input type="time" formControlName="deadlineTime"></label>
   </div>
 
   <div>
-    <label>作業時間(※必須, 0以上の整数)：<input [(ngModel)]="todo.workTimeMinutes" name="workTimeMinutes" placeholder="time" type="number" required min="0" pattern="([1-9][0-9]*)|0"></label>
+    <label>作業時間(※必須, 0以上の整数)：<input placeholder="time" type="number" formControlName="workTimeMinutes" min="0"></label>
   </div>
 
-  <button type="submit" [disabled]="todoForm.form.invalid">Todoリストに追加</button>
+  <button type="submit" [disabled]="todoForm.invalid">Todoリストに追加</button> 
 </form>
