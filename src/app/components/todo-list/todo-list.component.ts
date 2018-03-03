@@ -32,18 +32,29 @@ export class TodoListComponent implements OnInit {
       });
   }
 
-  // TODO:比較関数は動的に変更したい
+  // TODO:比較関数は将来的に動的に変更したい
+  // ミリ秒の計算をメソッド化する方法を知ってたらだれか教えて～
+  // ↓メソッド化するとこんなエラーが出る(thisがundefinedになってる？？？？)
+  // Uncaught TypeError: Cannot read property 'メソッド名' of undefined
   private compareTodo(x: Todo, y: Todo): number {
-    let result: number = x.deadlineDate.localeCompare(y.deadlineDate);
-    if (result !== 0) {
-      return result;
-    }
+    const xDate = x.deadlineDate.split('-');
+    const xTime = x.deadlineTime.split(':');
+    const xRequiredStartTimeMillisecond = new Date(
+      parseInt(xDate[0], 10) - 1,
+      parseInt(xDate[1], 10) - 1,
+      parseInt(xDate[2], 10),
+      parseInt(xTime[0], 10),
+      parseInt(xTime[1], 10)).getTime() - x.workTimeMinutes * 60 * 1000;
 
-    result = x.deadlineTime.localeCompare(y.deadlineTime);
-    if (result !== 0) {
-      return result;
-    }
+    const yDate = y.deadlineDate.split('-');
+    const yTime = y.deadlineTime.split(':');
+    const yRequiredStartTimeMillisecond = new Date(
+      parseInt(yDate[0], 10) - 1,
+      parseInt(yDate[1], 10) - 1,
+      parseInt(yDate[2], 10),
+      parseInt(yTime[0], 10),
+      parseInt(yTime[1], 10)).getTime() - y.workTimeMinutes * 60 * 1000;
 
-    return x.workTimeMinutes - y.workTimeMinutes;
+    return xRequiredStartTimeMillisecond - yRequiredStartTimeMillisecond;
   }
 }
