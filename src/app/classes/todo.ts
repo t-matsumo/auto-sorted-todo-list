@@ -1,7 +1,8 @@
 export class Todo {
     title: string;
     content: string;
-    deadline: string;
+    deadlineDate: string;
+    deadlineTime: string;
     workTimeMinutes: number;
     _id: string;
     createdAt: object;
