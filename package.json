@@ -32,7 +32,9 @@
     "test": "karma start ./karma.conf.js",
     "pree2e:build": "webdriver-manager update --gecko false && npm run ng:serve",
     "pree2e:protractor": "wait-on http-get://localhost:4200/ && protractor ./protractor.conf.js",
-    "e2e": "npm-run-all -p pree2e:build pree2e:protractor"
+    "e2e": "npm-run-all -p pree2e:build pree2e:protractor",
+    "package": "npm run build:prod && npm run package:copy-required-files && rimraf auto-sorted-todo-list* && electron-packager ./dist",
+    "package:copy-required-files": "cpx main.js dist && cpx package.json dist && cpx node_modules/nedb/** dist/node_modules/nedb && cpx node_modules/binary-search-tree/** dist/node_modules/binary-search-tree && cpx node_modules/mkdirp/** dist/node_modules/mkdirp"
   },
   "dependencies": {
     "nedb": "^1.8.0"
@@ -58,6 +60,7 @@
     "codelyzer": "4.0.1",
     "copyfiles": "1.2.0",
     "core-js": "2.4.1",
+    "cpx": "^1.5.0",
     "cross-env": "5.0.5",
     "dotenv": "5.0.0",
     "electron": "1.8.2",

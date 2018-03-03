@@ -18,3 +18,11 @@ https://github.com/maximegris/angular-electron
 - [ ] 見た目を良くする(めんどくさいからscssでだれかやってくれないかな...)
 - [ ]入力フォームにバリデーションをかける
 - [ ] ソート順切り替え
+- [ ]パッケージ方法をいい感じにする
+    - [ ]packageの中に最小限のnode_modulesの中身を移す簡単な方法を考える(.exeとか.appファイルを作るとき)
+    - [ ]現状ではauto-sorted-todo-list-*/resources/app/main.jsを以下のようにいじらないと実行可能ファイルからは動かないため自動化する
+    ```
+    pathname: path.join(__dirname, 'dist/index.html'),
+    ↓
+    pathname: path.join(__dirname, 'index.html'),
+    ```

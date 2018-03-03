@@ -45,3 +45,4 @@ package-lock.json
 Thumbs.db
 
 db/*
+auto-sorted-todo-list-*
