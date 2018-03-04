@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-content>
     <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-      <mat-form-field hintLabel="必須">
+      <mat-form-field hintLabel="必須，30文字以内">
         <input placeholder="やること" type="text" formControlName="title" matInput>
       </mat-form-field>
 
-      <mat-form-field hintLabel="必須">
+      <mat-form-field hintLabel="必須，100文字以内">
         <input placeholder="内容" type="text" formControlName="content" matInput>
       </mat-form-field>
 
@@ -17,8 +17,8 @@
         <input placeholder="終了時刻" type="time" formControlName="deadlineTime" matInput>
       </mat-form-field>
 
-      <mat-form-field hintLabel="必須, 0以上の整数">
-        <input placeholder="作業時間" type="number" formControlName="workTimeMinutes" min="0" matInput>
+      <mat-form-field hintLabel="必須, 0以上1440以内の整数">
+        <input placeholder="作業時間(分)" type="number" formControlName="workTimeMinutes" min="0" matInput>
       </mat-form-field>
 
       <button type="submit" [disabled]="todoForm.invalid" mat-raised-button>Todoリストに追加</button> 
