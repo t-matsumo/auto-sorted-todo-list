@@ -24,7 +24,7 @@ export class TodoListComponent implements OnInit {
       });
   }
 
-  removeTask(todo: Todo) {
+  onClickComplete(todo: Todo) {
     this.todoService.remove(todo)
       .subscribe(todos => {
         this.todos = todos.sort(this.compareTodo);

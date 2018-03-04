@@ -1,9 +1,1 @@
-<h1>
-  todo list
-</h1>
-
-<ul>
-  <li *ngFor="let todo of todos">
-    <app-todo [todo]="todo" (completeTask)="removeTask(todo)"></app-todo>
-  </li>
-</ul>
+<app-todo-card *ngFor="let todo of todos" [todo]="todo" (clickCompleteEvent)="onClickComplete(todo)"></app-todo-card>
