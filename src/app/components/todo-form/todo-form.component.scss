@@ -1,7 +1,8 @@
-div {
-    margin: 24px;
-}
+mat-card {
+    margin: 24px 12px;
 
-button {
-    margin: 24px;
+    mat-form-field {
+        display: block;
+        margin: 24px 12px;
+    }
 }

@@ -1,23 +1,27 @@
-<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>タイトル(※必須)：<input placeholder="やること" type="text" formControlName="title"></label>
-  </div>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <mat-form-field hintLabel="必須">
+        <input placeholder="やること" type="text" formControlName="title" matInput>
+      </mat-form-field>
 
-  <div>
-    <label>内容(※必須)：<input placeholder="やることの詳細" type="text" formControlName="content"></label>
-  </div>
+      <mat-form-field hintLabel="必須">
+        <input placeholder="内容" type="text" formControlName="content" matInput>
+      </mat-form-field>
 
-  <div>
-    <label>期日(※必須)：<input type="date" formControlName="deadlineDate"></label>
-  </div>
+      <mat-form-field hintLabel="必須">
+        <input placeholder="期日" type="date" formControlName="deadlineDate" matInput>
+      </mat-form-field>
 
-  <div>
-    <label>終了時刻(※必須)：<input type="time" formControlName="deadlineTime"></label>
-  </div>
+      <mat-form-field hintLabel="必須">
+        <input placeholder="終了時刻" type="time" formControlName="deadlineTime" matInput>
+      </mat-form-field>
 
-  <div>
-    <label>作業時間(※必須, 0以上の整数)：<input placeholder="time" type="number" formControlName="workTimeMinutes" min="0"></label>
-  </div>
+      <mat-form-field hintLabel="必須, 0以上の整数">
+        <input placeholder="作業時間" type="number" formControlName="workTimeMinutes" min="0" matInput>
+      </mat-form-field>
 
-  <button type="submit" [disabled]="todoForm.invalid">Todoリストに追加</button> 
-</form>
+      <button type="submit" [disabled]="todoForm.invalid" mat-raised-button>Todoリストに追加</button> 
+    </form>
+  </mat-card-content>
+</mat-card>

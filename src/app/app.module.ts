@@ -8,7 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { MatToolbarModule, MatButtonModule, MatListModule, MatCardModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatListModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +59,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatButtonModule,
     MatListModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
