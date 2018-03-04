@@ -6,6 +6,8 @@
 (※既存のデータは削除)
 ```
 npm run seed
+または
+npm run seed-max # 最大値データ
 ```
 
 # 実行方法
