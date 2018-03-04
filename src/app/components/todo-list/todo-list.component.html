@@ -1,4 +1,8 @@
-<div *ngFor="let todo of todos">
+<mat-paginator [length]="todos.length" [pageSize]="pageSize" (page)="onPageChanged($event)"></mat-paginator>
+
+<div *ngFor="let todo of showingTodos">
     <app-list-header-card *ngIf="shouldShowDateLabel(todo)" [content]="todo.deadlineDate"></app-list-header-card>
     <app-todo-card [todo]="todo" (clickCompleteEvent)="onClickComplete(todo)"></app-todo-card>
 </div>
+
+<mat-paginator [length]="todos.length" [pageSize]="pageSize" (page)="onPageChanged($event)"></mat-paginator>

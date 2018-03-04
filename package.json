@@ -34,7 +34,9 @@
     "pree2e:protractor": "wait-on http-get://localhost:4200/ && protractor ./protractor.conf.js",
     "e2e": "npm-run-all -p pree2e:build pree2e:protractor",
     "package": "npm run build:prod && npm run package:copy-required-files && rimraf auto-sorted-todo-list* && electron-packager ./dist",
-    "package:copy-required-files": "cpx main.js dist && cpx package.json dist && cpx node_modules/nedb/** dist/node_modules/nedb && cpx node_modules/binary-search-tree/** dist/node_modules/binary-search-tree && cpx node_modules/mkdirp/** dist/node_modules/mkdirp"
+    "package:copy-required-files": "cpx main.js dist && cpx package.json dist && cpx node_modules/nedb/** dist/node_modules/nedb && cpx node_modules/binary-search-tree/** dist/node_modules/binary-search-tree && cpx node_modules/mkdirp/** dist/node_modules/mkdirp",
+    "seed": "node lib/seed.js",
+    "seed-max": "node lib/seed-max-data.js"
   },
   "dependencies": {
     "@angular/animations": "^5.2.7",

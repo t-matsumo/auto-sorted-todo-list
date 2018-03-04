@@ -1,6 +1,13 @@
 # AutoSortedTodoList
 行うべき順番にソートしてくれるTODOリスト(同じ機能を持つ既存のものはたくさんあるけど作るwww)
 
+# データの用意
+以下のコマンドを実装するとdb/todo.dbにデータを作成する  
+(※既存のデータは削除)
+```
+npm run seed
+```
+
 # 実行方法
 package.jsonまたは以下のリポジトリを参照  
 https://github.com/maximegris/angular-electron

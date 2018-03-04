@@ -35,11 +35,11 @@ export class TodoFormComponent implements OnInit, OnChanges {
 
   createForm() {
     this.todoForm = this.fb.group({
-      title: ['', Validators.required],
-      content: ['', Validators.required],
+      title: ['', [Validators.required, Validators.maxLength(30)]],
+      content: ['', [Validators.required, Validators.maxLength(100)]],
       deadlineDate: ['', Validators.required],
       deadlineTime: ['', Validators.required],
-      workTimeMinutes: ['', [Validators.required, Validators.min(0), Validators.pattern(/([1-9][0-9]*)|0/)]],
+      workTimeMinutes: ['', [Validators.required, Validators.min(0), Validators.max(1440)]],
     });
   }
 }
