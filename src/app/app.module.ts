@@ -34,6 +34,7 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoCardComponent } from './components/todo-card/todo-card.component';
+import { ListHeaderCardComponent } from './components/list-header-card/list-header-card.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TodoListComponent,
     TodoFormComponent,
     TodoCardComponent,
+    ListHeaderCardComponent,
   ],
   imports: [
     BrowserModule,

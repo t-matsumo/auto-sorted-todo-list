@@ -1,1 +1,4 @@
-<app-todo-card *ngFor="let todo of todos" [todo]="todo" (clickCompleteEvent)="onClickComplete(todo)"></app-todo-card>
+<div *ngFor="let todo of todos">
+    <app-list-header-card *ngIf="shouldShowDateLabel(todo)" [content]="todo.deadlineDate"></app-list-header-card>
+    <app-todo-card [todo]="todo" (clickCompleteEvent)="onClickComplete(todo)"></app-todo-card>
+</div>

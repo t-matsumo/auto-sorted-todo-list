@@ -9,6 +9,7 @@ import { TodoService } from '../../providers/todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[];
+  lastDateLabel: string;
 
   constructor(private todoService: TodoService, private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -30,6 +31,15 @@ export class TodoListComponent implements OnInit {
         this.todos = todos.sort(this.compareTodo);
         this.changeDetectorRef.detectChanges();
       });
+  }
+
+  shouldShowDateLabel(todo: Todo) {
+    if (todo.deadlineDate !== this.lastDateLabel) {
+      this.lastDateLabel = todo.deadlineDate;
+      return true;
+    }
+
+    return false;
   }
 
   // TODO:比較関数は将来的に動的に変更したい
