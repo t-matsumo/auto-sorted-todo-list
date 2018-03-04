@@ -8,6 +8,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatListModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 
 // NG Translate
@@ -22,7 +33,7 @@ import { WebviewDirective } from './directives/webview.directive';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
-import { TodoComponent } from './components/todo/todo.component';
+import { TodoCardComponent } from './components/todo-card/todo-card.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,7 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     WebviewDirective,
     TodoListComponent,
     TodoFormComponent,
-    TodoComponent
+    TodoCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +54,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

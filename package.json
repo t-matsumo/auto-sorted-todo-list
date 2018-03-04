@@ -37,6 +37,10 @@
     "package:copy-required-files": "cpx main.js dist && cpx package.json dist && cpx node_modules/nedb/** dist/node_modules/nedb && cpx node_modules/binary-search-tree/** dist/node_modules/binary-search-tree && cpx node_modules/mkdirp/** dist/node_modules/mkdirp"
   },
   "dependencies": {
+    "@angular/animations": "^5.2.7",
+    "@angular/cdk": "^5.2.3",
+    "@angular/material": "^5.2.3",
+    "hammerjs": "^2.0.8",
     "nedb": "^1.8.0"
   },
   "devDependencies": {

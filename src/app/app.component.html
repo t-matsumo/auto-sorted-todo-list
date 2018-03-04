@@ -1,5 +1,10 @@
-<nav>
-  <button routerLink="/todo-list">TodoList</button>
-  <button routerLink="/todo-form">TodoForm</button>
-</nav>
+<mat-toolbar color="primary">
+  <span>Auto Sorted List</span>
+
+  <span class="fill-remaining-space"></span>
+
+  <a routerLink="/todo-list" mat-button>TodoList</a>
+  <a routerLink="/todo-form" mat-button>TodoForm</a>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

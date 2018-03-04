@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>{{todo.title}}</mat-card-title>
+    
+    <mat-card-content>
+        内容：{{todo.content}}
+    </mat-card-content>
+
+    <mat-card-content>
+        期日：{{todo.deadlineDate}}
+    </mat-card-content>
+
+    <mat-card-content>
+        終了時刻：{{todo.deadlineTime}}
+    </mat-card-content>
+
+    <mat-card-content>
+        作業時間：{{todo.workTimeMinutes}}分
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button (click)="onClickComplete()" mat-raised-button>作業完了</button>
+    </mat-card-actions>
+</mat-card>
