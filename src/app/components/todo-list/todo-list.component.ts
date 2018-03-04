@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Todo } from '../../classes/todo';
 import { TodoService } from '../../providers/todo.service';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,8 +9,11 @@ import { TodoService } from '../../providers/todo.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  todos: Todo[];
+  todos: Todo[] = [];
+  showingTodos: Todo[];
   lastDateLabel: string;
+  pageSize = 5;
+  pageIndex = 0;
 
   constructor(private todoService: TodoService, private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -21,6 +25,10 @@ export class TodoListComponent implements OnInit {
     this.todoService.getTodos()
       .subscribe(todos => {
         this.todos = todos.sort(this.compareTodo);
+        const startIndex = this.pageIndex * this.pageSize;
+        const endIndex = startIndex + this.pageSize;
+        this.showingTodos = this.todos.slice(startIndex, endIndex);
+        this.lastDateLabel = null;
         this.changeDetectorRef.detectChanges();
       });
   }
@@ -29,6 +37,10 @@ export class TodoListComponent implements OnInit {
     this.todoService.remove(todo)
       .subscribe(todos => {
         this.todos = todos.sort(this.compareTodo);
+        const startIndex = this.pageIndex * this.pageSize;
+        const endIndex = startIndex + this.pageSize;
+        this.showingTodos = this.todos.slice(startIndex, endIndex);
+        this.lastDateLabel = null;
         this.changeDetectorRef.detectChanges();
       });
   }
@@ -40,6 +52,14 @@ export class TodoListComponent implements OnInit {
     }
 
     return false;
+  }
+
+  onPageChanged(pageEvent: PageEvent) {
+    const startIndex = pageEvent.pageIndex * pageEvent.pageSize;
+    const endIndex = startIndex + pageEvent.pageSize;
+    this.showingTodos = this.todos.slice(startIndex, endIndex);
+    this.lastDateLabel = null;
+    this.pageIndex = pageEvent.pageIndex;
   }
 
   // TODO:比較関数は将来的に動的に変更したい
