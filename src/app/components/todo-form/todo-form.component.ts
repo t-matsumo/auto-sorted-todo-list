@@ -22,11 +22,12 @@ export class TodoFormComponent implements OnInit, OnChanges {
   onSubmit() {
     const todo = this.todoForm.value;
     this.todoService.save(todo);
+
+    this.ngOnChanges();
+
     this.snackBar.open('リストに追加しました', 'OK', {
       duration: 3000
     });
-
-    this.ngOnChanges();
   }
 
   ngOnChanges() {
