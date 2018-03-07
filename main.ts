@@ -29,19 +29,6 @@ function createWindow() {
   });
 
   db = new Datastore({filename: 'db/todo.db', timestampData: true, autoload: true});
-  // テストデータ準備
-  // db.insert([{
-  //   title: 'あれ',
-  //   content: 'これ',
-  //   deadline: '2018-02-26',
-  //   workTimeMinutes: 15,
-  // },
-  // {
-  //   title: 'それ',
-  //   content: 'どれ',
-  //   deadline: '2018-02-26',
-  //   workTimeMinutes: 30,
-  // }]);
 
   if (serve) {
     require('electron-reload')(__dirname, {
