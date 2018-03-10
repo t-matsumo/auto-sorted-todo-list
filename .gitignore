@@ -46,5 +46,5 @@ Thumbs.db
 
 db/*
 auto-sorted-todo-list-*
-src/app/classes/**/*.js
+src/app/models/**/*.js
 src/app/constants/**/*.js
