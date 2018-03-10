@@ -7,6 +7,7 @@ import { Todo } from '../classes/todo';
 // the resulting javascript file will look as if you never imported the module at all.
 import { ipcRenderer } from 'electron';
 import * as childProcess from 'child_process';
+import { TODO } from '../constants/channel/todo';
 
 @Injectable()
 export class ElectronService {
@@ -27,21 +28,21 @@ export class ElectronService {
   }
 
   getTodos(): Observable<Todo[]> {
-    this.ipcRenderer.send('todos');
+    this.ipcRenderer.send(TODO.ALL);
     return this.createTodoObservable();
   }
 
   save(todo: Todo) {
-    this.ipcRenderer.send('saveTodo', todo);
+    this.ipcRenderer.send(TODO.SAVE, todo);
   }
 
   remove(todo: Todo): Observable<Todo[]> {
-    this.ipcRenderer.send('removeTodo', todo);
+    this.ipcRenderer.send(TODO.REMOVE, todo);
     return this.createTodoObservable();
   }
 
   private createTodoObservable(): Observable<Todo[]> {
-    return fromEvent<Todo[]>(this.ipcRenderer, 'todos', (event, todos) => {
+    return fromEvent<Todo[]>(this.ipcRenderer, TODO.ALL, (event, todos) => {
       return todos;
     });
   }

@@ -2,6 +2,7 @@ import { app, BrowserWindow, screen, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 import { Todo } from './src/app/classes/todo';
+import { TODO } from './src/app/constants/channel/todo';
 const Datastore = require('nedb');
 
 let win, serve;
@@ -84,12 +85,12 @@ try {
 }
 
 // TODO:将来的に別ファイルに分けるかも...
-ipcMain.on('todos', sendAllTodos);
+ipcMain.on(TODO.ALL, sendAllTodos);
 
-ipcMain.on('saveTodo', (event, todo) => db.insert(todo));
+ipcMain.on(TODO.SAVE, (event, todo) => db.insert(todo));
 
-ipcMain.on('removeTodo', (event, todo) => db.remove({_id: todo._id}, {}, (err1, numRemoved) => sendAllTodos(event)));
+ipcMain.on(TODO.REMOVE, (event, todo) => db.remove({_id: todo._id}, {}, (err1, numRemoved) => sendAllTodos(event)));
 
 function sendAllTodos(event) {
-  db.find({}, (err, todos) => event.sender.send('todos', todos));
+  db.find({}, (err, todos) => event.sender.send(TODO.ALL, todos));
 }
