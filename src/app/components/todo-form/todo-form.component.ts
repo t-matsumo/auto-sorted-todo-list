@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, OnChanges } from '@angular/core';
-import { Todo } from '../../classes/todo';
+import { Todo } from '../../models/todo';
 import { TodoService } from '../../providers/todo.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';

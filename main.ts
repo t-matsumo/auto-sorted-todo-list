@@ -1,7 +1,7 @@
 import { app, BrowserWindow, screen, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
-import { Todo } from './src/app/classes/todo';
+import { Todo } from './src/app/models/todo';
 import { TODO } from './src/app/constants/channel/todo';
 const Datastore = require('nedb');
 
@@ -89,7 +89,12 @@ ipcMain.on(TODO.ALL, sendAllTodos);
 
 ipcMain.on(TODO.SAVE, (event, todo) => db.insert(todo));
 
-ipcMain.on(TODO.REMOVE, (event, todo) => db.remove({_id: todo._id}, {}, (err1, numRemoved) => sendAllTodos(event)));
+ipcMain.on(TODO.REMOVE, (event, todo) => {
+  db.remove({_id: todo._id}, {}, (err1, numRemoved) => {
+    console.log(numRemoved);
+    sendAllTodos(event);
+  });
+});
 
 function sendAllTodos(event) {
   db.find({}, (err, todos) => event.sender.send(TODO.ALL, todos));

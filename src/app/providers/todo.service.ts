@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { Todo } from '../classes/todo';
+import { Todo } from '../models/todo';
 import { ElectronService } from './electron.service';
+import { TODO } from '../constants/channel/todo';
 
 @Injectable()
 export class TodoService {
 
   constructor(private electronService: ElectronService) { }
 
-  getTodos(): Observable<Todo[]> {
-    return this.electronService.getTodos();
+  all(): Observable<Todo[]> {
+    this.electronService.send(TODO.ALL);
+    return this.electronService.fromChannel(TODO.ALL);
   }
 
   save(todo: Todo) {
-    this.electronService.save(todo);
+    this.electronService.send(TODO.SAVE, todo);
   }
 
   remove(todo: Todo): Observable<Todo[]> {
-    return this.electronService.remove(todo);
+    this.electronService.send(TODO.REMOVE, todo);
+    return this.electronService.fromChannel(TODO.ALL);
   }
 
   getShowingTodos(todos: Todo[], pageIndex: number, pageSize: number): Todo[] {

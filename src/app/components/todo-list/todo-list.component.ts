@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Todo } from '../../classes/todo';
+import { Todo } from '../../models/todo';
 import { TodoService } from '../../providers/todo.service';
 import { PageEvent } from '@angular/material';
 
@@ -22,7 +22,7 @@ export class TodoListComponent implements OnInit {
   }
 
   getTodos(): void {
-    this.todoService.getTodos()
+    this.todoService.all()
       .subscribe(todos => {
         this.todos = todos.sort((x, y) =>
           this.todoService.calcRequiredStartTimeMillisecond(x) - this.todoService.calcRequiredStartTimeMillisecond(y));
